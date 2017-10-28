@@ -1,0 +1,130 @@
+\ProvidesPackage{dissertacao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% O package inputenc adiciona suporte a caracteres ISO-8859-1.
+%%% Acentuação sem caracteres especiais,datetime.zip
+%%% e.g., "função" em vez de "fun\c c\~ao".
+\RequirePackage[latin1]{inputenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hifenização correta de caracteres acentuados em Português.
+\RequirePackage[T1]{fontenc}
+
+% remoce hifenização
+\RequirePackage[none]{hyphenat}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte para gerar o documento em Inglês e Português.
+%%% Última opção é padrão no documento.
+\RequirePackage[english,brazil]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% indenta o primeiro parágrafo, estilo brasileiro.
+\RequirePackage{indentfirst}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Índice Remissivo
+%%%\RequirePackage{makeidx}
+
+\RequirePackage{float}
+
+
+\RequirePackage[hang,small,bf]{caption2}
+
+%\RequirePackage[]{rangecite}
+\RequirePackage[sort]{cite}
+
+% \RequirePackage[ps2pdf,breaklinks,colorlinks,linkcolor=red,citecolor=blue,final]{hyperref}
+% \RequirePackage{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Para incluir gráficos -- Formato .eps [dvips] / retirado para ficar genérico: usar no documentclass
+%\RequirePackage[dvips]{graphicx}
+%\RequirePackage[pdftex]{graphicx}
+\RequirePackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package subfigure --- Figuras dentro de figuras.
+\RequirePackage{subfigure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package wrapfig --- Figuras e tabelas ao lado de texto
+\RequirePackage{wrapfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package placeins --- mantem figuras e tabelas na
+%%% seção onde são declaradas
+%%% \usepackage[below]{placeins}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Redefinir dimensões da página
+\RequirePackage[dvips]{geometry}
+%\RequirePackage{geometry}
+\geometry{a4paper,left=3cm,right=3cm,top=3.5cm,bottom=3cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package alltt -- Funciona como o pacote verbatim,
+%%% mas permite inclusão de texto proveniente de arquivos.
+\RequirePackage{alltt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% suporte a tabelas coloridas
+\RequirePackage{colortbl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% fácil manipulação das propiedades de uma tabela
+\RequirePackage{array}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% configuração das dimensões de uma tabela (manipula colunas)
+%%% ajusta a tabela as dimensões da página
+\RequirePackage{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte para múltiplas colunas
+\RequirePackage{multicol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package longtable -- Suporte para tabelas que ocupam mais de uma página.
+\RequirePackage{longtable}
+
+\RequirePackage{ltxtable}
+
+\RequirePackage{multirow}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package psfrag -- Suporte para superposição de texto do LaTeX em
+%%% figuras PostScript. Carregado somente na versão DVI/PS.
+\RequirePackage{psfrag}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package enumerare -- Extensão do ambiente "enumerate".
+\RequirePackage{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Package fancyhdr -- manipulação fácil de cabeçalhos e notas de radapé.
+\RequirePackage{fancyhdr}
+\RequirePackage[Lenny]{fncychap}
+%\RequirePackage[nobottomtitles,clearempty]{titlesec}
+\RequirePackage[clearempty,compact]{titlesec}
+
+\RequirePackage{titletoc}
+\RequirePackage{amsmath,amsfonts,amsbsy,amssymb}
+%\RequirePackage{afterpage}
+
+% incluir bibliografia, índice e listas no sumário
+%\RequirePackage[nottoc,notlof,notlot]{tocbibind}
+%\settocname{teste}
+
+%\RequirePackage[lined,algonl,boxed]{algorithm2e}
+%\RequirePackage{footmisc}
+\RequirePackage{setspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% traduzir automaticamente os meses das referências para português
+\RequirePackage{datetimepor}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% incluir palavra "apêndice" antes da indexação dos capítulos do apêndice
+\RequirePackage[titletoc,title]{appendix}

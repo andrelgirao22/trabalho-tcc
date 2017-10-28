@@ -1,0 +1,259 @@
+\ProvidesPackage{dissertacao_defs}
+
+\sloppy
+
+
+%%%% cores para controle de alteracoes
+%%%% OBS: clicar duas vezes sobre "textcolor" para abrir uma caixa de diálogo de cores
+%\def\alt#1{\textcolor[rgb]{0.80,0.00,0.00}{1>#1}}
+%\def\altb#1{\textcolor[rgb]{0.80,0.30,0.00}{2>#1}}
+%\def\altc#1{\textcolor[rgb]{0.00,0.30,1.00}{3>#1}}
+%\def\altd#1{\textcolor[rgb]{0.42,0.00,0.42}{4>#1}}
+\def\alt#1{{#1}}
+\def\altb#1{{#1}}
+\def\altc#1{{#1}}
+%\def\altd#1{\textcolor[rgb]{1.00,0.00,0.00}{4>#1}}
+\def\altd#1{#1}
+
+\def\aspas#1{"#1"\xspace}
+\def\ex{e.g.\xspace} % exempli gratia
+\def\v{,} % virgula decimal
+
+%%%% definição de tipos para fórmulas
+%\def\dim{M}
+%\def\idim{i}
+\def\dim{M}
+\def\idim{m}
+\def\Namo{N}
+\def\iamo{n}
+\def\d{\textsf{d}} % derivada
+\def\Netp{T} % Número total de etapas do varboost
+\def\ietp{t} % indice das etapas
+\def\Nclf{B} % Número total de classificadores base
+\def\iclf{b} % indice dos classificadores base
+\def\Ncls{J} % Número total de classes
+\def\icls{j} % indice da classe
+\def\H{\mathscr{H}} % hipótese ou predição
+\def\CJ{\mathcal{D}} % conjunto de amostras
+\def\SCJ{\mathcal{SD}} % subconjunto de amostras
+%\def\rotulo{\textsc{r}} % rótulo da classe
+\def\rotulo{\textsl{r}} % rótulo da classe
+%\def\classe{\Omega} % identificação da classe
+\def\classe{\mathscr{C}} % identificação da classe
+%\def\dist{\textsl{d}} % distancia
+%\def\dist{\rho} % distancia
+%\def\dist{\textsl{d}} % distancia
+\def\dist{\emph{\texttt{d}}} % distancia
+\def\peso{w} % peso dos neuronios
+\def\vpeso{\vet{w}} % vetor peso dos neuronios
+\def\D{\emph{d}} % distribuicao do boost
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%\renewcommand{\labelitemi}{$\heartsuit$}
+%\renewcommand{\labelitemii}{$\spadesuit$}
+%%%%%%%%
+%\noindent Here's my list:
+%
+%\begin{itemize}
+%\item Item 1.
+%\begin{itemize}
+%\item List 2, Item 1
+%\item List 2, Item 2
+%\end{itemize}
+%\item Item 2.
+%\item Item 3.
+%\end{itemize}
+%
+%
+%\renewcommand{\labelenumi}{\Roman{enumi}.}
+%\renewcommand{\labelenumii}{\Roman{enumi}. \alph{enumii}}
+%%
+%\begin{enumerate}
+%  \item item1
+%  \begin{enumerate}
+%    \item subitem1
+%    \item subitem2
+%  \end{enumerate}
+%  \item item2
+%  \item item3
+%\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% configuração das tabelas da dissertação
+
+%%% espessura das linhas da tabela
+\setlength{\arrayrulewidth}{2.5\arrayrulewidth}
+
+%%% espaço entre linhas da tabela
+\renewcommand{\arraystretch}{1.3}
+
+\newcolumntype{U}{>{$}l<{$}}
+
+%%% tipo de célula centralizada de tamanho fixo
+\newcolumntype{M}[1]{>{\centering\hspace{0pt}}m{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% configuração das captions da dissertação
+%%% formatação das fontes dos captions
+\renewcommand{\captionfont}{\mdseries\small}
+%%% espaçamento do caption das figuras
+\setlength{\abovecaptionskip}{5pt}
+%%% espaçamento do caption das tabelas
+\setlength{\belowcaptionskip}{5pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% utilização do pacote algorithm e algorithmic em português
+%\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+%\renewcommand{\algorithmicensure}{\textbf{Saída:}}
+%\renewcommand{\algorithmicend}{\textbf{fim}}
+%\renewcommand{\algorithmicif}{\textbf{se}}
+%\renewcommand{\algorithmicthen}{\textbf{então}}
+%\renewcommand{\algorithmicelse}{\textbf{senão}}
+%%\renewcommand{\algorithmicelsif}{\algorithmicelse \newline \algorithmicif}
+%\renewcommand{\algorithmicelsif}{\algorithmicelse \, \algorithmicif}
+%\renewcommand{\algorithmicendif}{\algorithmicend \, \algorithmicif}
+%\renewcommand{\algorithmicfor}{\textbf{para}}
+%\renewcommand{\algorithmicforall}{\textbf{para todo}}
+%\renewcommand{\algorithmicdo}{\textbf{fazer}}
+%\renewcommand{\algorithmicendfor}{\algorithmicend \, \algorithmicfor}
+%\renewcommand{\algorithmicwhile}{\textbf{enquanto}}
+%\renewcommand{\algorithmicendwhile}{\algorithmicend \, \algorithmicwhile}
+%\renewcommand{\algorithmicloop}{\textbf{laço}}
+%\renewcommand{\algorithmicendloop}{\algorithmicend \, \algorithmicloop}
+%\renewcommand{\algorithmicrepeat}{\textbf{repetir}}
+%\renewcommand{\algorithmicuntil}{\textbf{até}}
+%\renewcommand{\algorithmiccomment}[1]{\{#1\}}
+%%\renewcommand{\listalgorithmname}{Lista de Algoritmos}
+%\floatname{algorithm}{Algoritmo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% definições dos estilos de páginas utilizando o pacote fancyhdr
+%%% definição de cabeçalhos e rodapés
+
+\fancypagestyle{capitulo}{%
+\fancyhf{}%
+\newcommand{\capfont}{%
+%\fontseries{n}\fontsize{10}{8}\selectfont
+\mdseries\scriptsize
+}%
+\newcommand{\cappg}{%
+\bfseries\small
+}%
+\fancyhead[LE,RO]{\cappg{\thepage}}
+\fancyhead[LO]{\capfont{\nouppercase{\rightmark}}}%
+\fancyhead[RE]{\capfont{\nouppercase{\leftmark}}}%
+\renewcommand{\headrulewidth}{.5pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}%
+
+\fancypagestyle{roman}{%
+\fancyhf{}%
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% modificação do cabeçalho dos capítulos utilizando o pacote fncychap
+\makeatletter
+\ChNameVar{\fontsize{14}{16}\bfseries}
+%\ChNumVar{\fontsize{70}{72}\rm}
+\ChTitleVar{\Huge\bfseries}
+\ChRuleWidth{1pt}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% definições dos estilos de páginas utilizando o pacote titlesec e titletoc
+\titleformat{\section}
+{%\titlerule%
+%\titlerule*[.25pc]{\Huge.}%
+%\titleline{\rule{.05\linewidth}{3pt}}%
+%\titlerule%
+\vspace{.10ex}%
+\large\bfseries}%
+{\thesection}{.5em}{}%
+%[\vspace{.05ex}{\titlerule[.25pt]\vspace{2pt}\titlerule[.25pt]}]
+%[\vspace{.05ex}{\titlerule[.25pt]}]
+%[{\titlerule*[1pc]{.}}]
+%[\titlerule]
+[\titlerule\titleline{\rule{.05\linewidth}{5pt}}]
+
+\titleformat{\subsection}[hang]
+{%\titlerule*[.5pc]{.}%
+%\titleline{\rule{.35\linewidth}{2pt}}%
+%\titlerule%
+%\vspace{.10ex}%
+\normalfont\bfseries}%
+%{\rule{.35\linewidth}{.8pt}{\thesubsection}}{.5em}{}%
+{\thesubsection}{.5em}{}%
+%[\vspace{.05ex}{\titlerule[.1pt]}]
+
+%\titlelabel{\thesubsection.\quad}
+
+%define espaçamento entre linhas
+\renewcommand{\baselinestretch}{1.3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition for Big letter at the beginning of a paragraph (extending for 2 lines)
+%%
+\def\PARstart#1#2{\begingroup\def\par{\endgraf\endgroup\lineskiplimit=0pt}
+    \setbox2=\hbox{\uppercase{#2}}\newdimen\tmpht \tmpht \ht2
+    \advance\tmpht by \baselineskip\font\hhuge=cmr10 at \tmpht
+    \setbox1=\hbox{{\hhuge #1}}
+    \count7=\tmpht \count8=\ht1\divide\count8 by 1000 \divide\count7 by\count8
+    \tmpht=.001\tmpht\multiply\tmpht by \count7\font\hhuge=cmr10 at \tmpht
+    \setbox1=\hbox{{\hhuge #1}} \noindent \hangindent1.05\wd1
+    \hangafter=-2 {\hskip-\hangindent \lower1\ht1\hbox{\raise1.0\ht2\copy1}%
+    \kern-0\wd1}\copy2\lineskiplimit=-1000pt}
+
+
+\def\PARstartOne#1#2{\begingroup\def\par{\endgraf\endgroup\lineskiplimit=0pt}
+    \setbox2=\hbox{#2\hspace{0.4em}}\newdimen\tmpht \tmpht \ht2
+    \advance\tmpht by \baselineskip\font\hhuge=cmr10 at \tmpht
+    \setbox1=\hbox{{\hhuge #1}}
+    \count7=\tmpht \count8=\ht1\divide\count8 by 1000 \divide\count7 by\count8
+    \tmpht=.001\tmpht\multiply\tmpht by \count7\font\hhuge=cmr10 at \tmpht
+    \setbox1=\hbox{{\hhuge #1}} \noindent \hangindent1.05\wd1
+    \hangafter=-2 {\hskip-\hangindent \lower1\ht1\hbox{\raise1.0\ht2\copy1}%
+    \kern-0\wd1}\copy2\lineskiplimit=-1000pt}
+
+\def\PARstartLetter#1#2{\begingroup\def\par{\endgraf\endgroup\lineskiplimit=0pt}
+    \setbox2=\hbox{\xspace#2\hspace{0.4em}}\newdimen\tmpht \tmpht \ht2
+    \advance\tmpht by \baselineskip\font\hhuge=cmr10 at \tmpht
+    \setbox1=\hbox{{\hhuge \uppercase{#1}}}
+    \count7=\tmpht \count8=\ht1\divide\count8 by 1000 \divide\count7 by\count8
+    \tmpht=.001\tmpht\multiply\tmpht by \count7\font\hhuge=cmr10 at \tmpht
+    \setbox1=\hbox{{\hhuge \uppercase{#1}}} \noindent \hangindent1.05\wd1
+    \hangafter=-2 {\hskip-\hangindent \lower1\ht1\hbox{\raise1.0\ht2\copy1}%
+    \kern-0\wd1}\copy2\lineskiplimit=-1000pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\renewcommand{\footnotesize}{\tiny}
+
+%\fontfamily{cmss}
+%\selectfont
+
+% alteração da indexação das listas de ítens
+\renewcommand\labelitemi{\normalsize    $\blacktriangleright$}
+\renewcommand\labelitemii{\normalsize $\bullet$}
+\renewcommand\labelitemiii{\normalsize $-$}
+
+% alteração da indexação das listas enumeradas
+\renewcommand\theenumi{\roman{enumi}}
+\renewcommand\labelenumi{{\bfseries\theenumi.}}
+
+
+\makeatletter
+  \renewcommand\appendix{\par
+    \setcounter{section}{0}%
+    \setcounter{subsection}{0}%
+    \renewcommand\thesection{Appendix~\@Alph\c@section}}
+\makeatother

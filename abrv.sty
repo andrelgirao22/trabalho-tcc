@@ -1,0 +1,150 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Macro para Gera??o Autom?tica de Abreviaturas v0.1
+% Geraldo Ramalho - 06/05/2007
+%
+% exemplo de uso:
+%   \def\SAR{\abrv{SAR}{Synthetic Aperture Radar}}
+%   Bl? bl? bl? \SAR bl? bl?. Bl? bl? \SAR bl? bl?.
+%
+% resultado:
+%   Bl? bl? bl? SAR (Synthetic Aperture Radar) bl? bl?. Bl? bl? SAR bl? bl?.
+%
+% para este formato:  Bl? bl? bl? Synthetic Aperture Radar (SAR) bl? bl?. Bl? bl? SAR bl? bl?.
+% utilize \abrv2
+%
+% use \abrvclear{SAR} para limpar a variavel ambiente antes de redefini-la
+%
+%%% prefix
+\def\abrvsettxtengprefix#1{%
+ \gdef\abrvtxtengprefix{#1\xspace}
+}%
+\def\abrvcleartxtengprefix{%
+ \gdef\abrvtxtengprefix{}
+}%
+
+%%% sufix
+\def\abrvsettxtengsufix#1{%
+ \gdef\abrvtxtengsufix{\xspace#1}
+}%
+\def\abrvcleartxtengsufix{%
+ \gdef\abrvtxtengsufix{}
+}%
+
+%%% formato
+\def\abrvfmtabnt{%
+ \gdef\abrvfmt{abnt}
+}%
+\def\abrvfmtpaper{%
+ \global\let\abrvfmt\undefined
+}%
+\def\abrvenabled{%
+ \global\let\abrvinibe\undefined
+}%
+\def\abrvdisabled{%
+ \global\gdef\abrvinibe{ligado}
+}%
+
+% default
+\def\abrvfmtdefault{%
+ \abrvfmtabnt%
+ \abrvenabled%
+ \abrvsettxtengprefix{do ingl?s}%
+ \abrvcleartxtengsufix%
+}%
+%
+\abrvfmtdefault% formato default
+%
+\def\abrv#1#2{%
+\ifx \abrvinibe\undefined%
+ \expandafter \ifx \csname c@#1 \endcsname \relax % macro nao definida
+   \expandafter \gdef \csname c@#1 \endcsname {#1}%
+   \ifx \abrvfmt\undefined%
+     #1\xspace(#2)%
+   \else%
+     #2\xspace(#1)%
+   \fi%
+ \else % macro j? foi definida
+  #1%
+ \fi%
+\else % inibido
+  #1%
+\fi%
+\xspace%
+}%
+%
+\def\abrveng#1#2#3{%
+\ifx \abrvinibe\undefined%
+ \expandafter \ifx \csname c@#1 \endcsname \relax % macro nao definida
+  \expandafter \gdef \csname c@#1 \endcsname {#1}%
+  \ifx \abrvfmt\undefined%
+    #1\xspace(#2, \abrvtxtengprefix\emph{#3}\abrvtxtengsufix)%
+  \else%
+    #2\xspace(#1, \abrvtxtengprefix\emph{#3}\abrvtxtengsufix)%
+  \fi%
+ \else % macro j? foi definida
+  #1%
+ \fi%
+\else % inibido
+ #1%
+\fi%
+\xspace
+}%
+%
+% abrvclear: apaga definicao
+\def\abrvclear#1{%
+ \expandafter \let \csname c@#1 \endcsname \undefined %
+}%
+%
+\def\trans#1#2{%
+\ifx \abrvinibe\undefined%
+ \expandafter \ifx \csname c@#1 \endcsname \relax % macro nao definida
+   \expandafter \gdef \csname c@#1 \endcsname {#1}%
+   \ifx \abrvfmt\undefined%
+     \emph{#1}\xspace(#2)%
+   \else%
+     #2\xspace(\emph{#1})%
+   \fi%
+ \else % macro j? foi definida
+  #2%
+ \fi%
+\else % inibido
+  #2%
+\fi%
+\xspace%
+}%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%
+%% DICAS
+%%%%%%
+%Abreviaturas, siglas e acr?nimos As siglas devem ser precedidas pelo
+%nome por extenso. Ex: Coopera??o Latino-Americana de Redes Avan?adas
+%(Clara); Am?rica Latina Conectada com a Europa (Alice), Americas
+%Path (Ampath); pontos de presen?a (PoPs), Network Time Protocol
+%(NTP).
+%
+%Exce??es:
+%
+%Protocolo PIM-SM (Protocol Independent Multicast- Sparse Mode) IPv6
+%(Internet Protocol version 6) IPng (IP Next Generation) UTC
+%(Universal Time Coordinated) GPS (Global Positioning System)
+%
+%Siglas consagradas pelo uso corrente n?o precisam de explica??o. Ex:
+%Mbps
+%
+%O significado das siglas de palavras estrangeiras deve ser dado em
+%portugu?s, exceto as siglas que n?o tiverem a tradu??o para o
+%portugu?s reconhecida. Ex: RP (Rendezvous point); PIM-SM (Protocol
+%Independent Multicast ? Sparse Mode).
+%
+%Use mai?sculas nos seguintes casos:
+%
+%Siglas - ABNT, RNP , UFRJ, PUC, MCT, CGEE (Exce??es: PoP, QoS, CNPq,
+%CPqD, UnB) Acr?nimos (siglas que formam palavras) com at? tr?s
+%letras - ONU, RAU, MEC. A partir de quatro letras, use min?sculas -
+%Banerj, Unicef. Abreviaturas - use min?sculas para os casos de
+%unidades de medidas. Ex: Gbps, Mbps, Hz, Km.
+%
+%ABNT - Abreviaturas e siglas: quando aparecem pela primeira vez,
+% deve-se colocar por extenso e a sigla entre par?nteses.
